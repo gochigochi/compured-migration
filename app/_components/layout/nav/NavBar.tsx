@@ -1,22 +1,22 @@
 import Link from "next/link"
 import Image from "next/image"
 import CategoriesMenu from "./categories_menu/CategoriesMenu"
-import { getCategories } from "@/app/_lib/getCategories"
+import { fetchData } from "@/app/_lib/fetchData"
 import SearchContainer from "./search/SearchContainer"
 
 const NavBar = async () => {
 
-  const categories = await getCategories()
+  const categories = await fetchData(`https://api-beta.saasargentina.com/v1/rubros?idrubro=0&desde=0&cantidad=100&orden=nombre&iue=PuaNYqpDhRBJ7K80I8WC&S=epqr6c893g5khekkir9s0l6k6n&_=1700488253028`)
 
   return (
     <header>
-      <div className="w-full max-w-screen-2xl mx-auto grid grid-cols- px-6 py-4">
+      <div className="w-full max-w-screen-2xl mx-auto grid grid-cols-12 px-6 py-4 mb-4">
         <div className="relative w-48 h-12 col-span-3">
           <Link href="/">
             <Image
               className="object-contain"
-              src="https://drive.google.com/uc?export=view&id=1BLm0zCbENDbmXD4BNX7myU_eDjGXuMG8"
-              alt="logo compured"
+              src="https://drive.google.com/uc?export=view&id=1ROGMSjGsbLJyREL5tK0u7Iy-96692vu9"
+              alt="store logo"
               fill
               priority
               sizes="(max-width: 650px) 50vw, 25vw"

@@ -25,9 +25,12 @@ export default function withClickOutside<T>(WrappedComponent: ComponentType<T>) 
         }, [])
 
         return (
-            <div id="out" className="fixed inset-0 p-32">
-                <WrappedComponent {...props} />
-            </div>
+            <>
+                <div className="fixed inset-0 bg-neutral-900/15 z-30"></div>
+                <div id="out" className="fixed inset-0 p-32 z-40">
+                    <WrappedComponent {...props} />
+                </div>
+            </>
         )
     }
 }

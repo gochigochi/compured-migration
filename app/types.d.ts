@@ -24,3 +24,10 @@ export type Product = {
 }
 
 export type Products = Product[]
+
+export type Banner = {
+    id: number,
+    url: string,
+}
+
+export type Banners = Banner[]

@@ -12,7 +12,7 @@ const FeaturedProducts = async ({ catId, qty } : PropsTypes) => {
 
   return (
     <section>
-      <h2 className="mb-8">Productos Destacados</h2>
+      <h2 className="mb-4">Productos Destacados</h2>
       <ProductsSwiper products={products} />
     </section>
   )
