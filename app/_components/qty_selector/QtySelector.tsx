@@ -3,14 +3,14 @@ import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 
 type PropsType = {
   amount: number
-  setQty: Dispatch<SetStateAction<string>>
+  setQty: Dispatch<SetStateAction<number>>
 }
 
 const QtySelector = ({ amount, setQty }: PropsType) => {
 
   const options = createArray(amount)
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => setQty(e.target.value)
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => setQty(parseInt(e.target.value))
 
   return (
     <div>

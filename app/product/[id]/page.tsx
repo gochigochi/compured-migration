@@ -8,7 +8,6 @@ export default async function ProductDetailPage(
 
     const { resultados: product } = await fetchData(`https://api-alfa.saasargentina.com/v0.2/productos/${searchParams.id}?iue=PuaNYqpDhRBJ7K80I8WC&iddeposito=1`)
 
-    console.log(product)
 
     return (
         <main className="grid grid-cols-12 gap-8 w-full max-w-screen-xl mx-auto px-14">
@@ -19,7 +18,7 @@ export default async function ProductDetailPage(
                 <h1 className="text-4xl">{product.nombre}</h1>
                 <p className="text-3xl">${product.preciofinal}</p>
                 <p>{product.nombre}</p>
-                <AddToCart productid={product.idproducto} stock={product.stockactual} />
+                <AddToCart product={product} />
             </div>
         </main>
     );
