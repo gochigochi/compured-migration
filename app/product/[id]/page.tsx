@@ -8,7 +8,6 @@ export default async function ProductDetailPage(
 
     const { resultados: product } = await fetchData(`https://api-alfa.saasargentina.com/v0.2/productos/${searchParams.id}?iue=PuaNYqpDhRBJ7K80I8WC&iddeposito=1`)
 
-
     return (
         <main className="grid grid-cols-12 gap-8 w-full max-w-screen-xl mx-auto px-14">
             <div className="col-span-5">

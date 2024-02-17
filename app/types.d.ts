@@ -1,3 +1,10 @@
+export type Banner = {
+    id: number,
+    url: string,
+}
+
+export type Banners = Banner[]
+
 export type Category = {
     idrubro: string
     nombre: string
@@ -25,9 +32,6 @@ export type Product = {
 
 export type Products = Product[]
 
-export type Banner = {
-    id: number,
-    url: string,
-}
+export type CartProduct = Product & { qty: number }
 
-export type Banners = Banner[]
+export type Cart = CartProduct[]

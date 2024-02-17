@@ -1,4 +1,6 @@
-import ItemList from "../_components/item_list/ItemList";
+import dynamic from "next/dynamic";
+
+const ItemList = dynamic(() => import("../_components/item_list/ItemList"), { ssr: false })
 
 export default function CartPage() {
 

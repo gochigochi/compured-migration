@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import type { Product } from "@/app/types"
+import type { CartProduct } from "@/app/types"
+import { getLocalStorage, setLocalStorage } from "@/app/_lib/localStorageMethods"
+import { current } from "@reduxjs/toolkit"
 
-
-type CartProduct = Product & { qty: number }
 
 type CartState = {
     products: CartProduct[]
 }
 
-const initialState: CartState = {
-    products: []
-}
+const initialState: CartState = getLocalStorage("cart") || { products: [] }
 
 export const cart = createSlice({
     name: "cart",
@@ -29,9 +27,18 @@ export const cart = createSlice({
 
                 state.products[index].qty += action.payload.qty
             }
+
+            setLocalStorage<typeof state>("cart", current(state))
+
         },
         removeProduct: (state, action: PayloadAction<{ id: string }>) => {
-            state.products.findIndex(product => product.idproducto === action.payload.id)
+
+            const index = state.products.findIndex(product => product.idproducto === action.payload.id)
+
+            state.products.splice(index, 1)
+
+            setLocalStorage<typeof state>("cart", current(state))
+
         },
         clearCart: () => {
 
