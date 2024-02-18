@@ -4,9 +4,7 @@ export default function withClickOutside<T>(WrappedComponent: ComponentType<T>) 
 
     return (props: PropsWithChildren<T & { action: () => void }>) => {
 
-        const handleClick = (e: MouseEvent) => {
-            if ((e.target as any).id === "out") props.action()
-        }
+        const handleClick = () => props.action()
 
         useEffect(() => {
 
@@ -25,12 +23,9 @@ export default function withClickOutside<T>(WrappedComponent: ComponentType<T>) 
         }, [])
 
         return (
-            <>
-                <div className="fixed inset-0 bg-neutral-900/15 z-30"></div>
-                <div id="out" className="fixed inset-0 p-32 z-40">
-                    <WrappedComponent {...props} />
-                </div>
-            </>
+            <div className="fixed inset-0 p-32 bg-neutral-900/15 z-30">
+                <WrappedComponent {...props} />
+            </div>
         )
     }
 }

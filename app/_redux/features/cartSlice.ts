@@ -40,8 +40,12 @@ export const cart = createSlice({
             setLocalStorage<typeof state>("cart", current(state))
 
         },
-        clearCart: () => {
+        clearCart: (state) => {
 
+            state.products = []
+
+            setLocalStorage<typeof state>("cart", current(state))
+            
         },
     }
 })

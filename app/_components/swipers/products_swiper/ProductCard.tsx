@@ -1,7 +1,8 @@
+"use client"
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Product } from '@/app/types'
-import { useRouter } from 'next/navigation'
 import useQueryString from '@/app/_hooks/useQueryString'
 
 const ProductCard = ({ product }: { product: Product }) => {

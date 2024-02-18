@@ -8,9 +8,9 @@ const SecondaryButton = ({
     action: () => void
 }) => {
   return (
-    <div onClick={action} className=" hover:opacity-70 cursor-pointer transition underline underline-offset-1">
+    <button onClick={action} className="hover:opacity-70 cursor-pointer transition underline underline-offset-1">
         {children}
-    </div>
+    </button>
   )
 }
 

@@ -11,8 +11,8 @@ const Category = ({ category } : { category: Category}) => {
         <li>
             <Link
                 className="p-6 block hover:bg-red-200 rounded-full m-2"
-                href={`/products/${category.idrubro}`}
-                as={`${toFriendlyUrl(category.nombre)}?${queryString}`}
+                href={`/category/${category.idrubro}`}
+                as={`/category/${toFriendlyUrl(category.nombre)}?${queryString}`}
             >
                 {category.nombre}
             </Link>
